@@ -16,4 +16,4 @@
 
 3. 비교문 확인을 잘하자
    ex) if(a == b) pass else bomb! 인 경우가 많으니 a의 값을 확인
-   x/d &rbx 이런 식으로 값 확인 가능 string은 x/s로 확인
+   x/d $rbx 이런 식으로 값 확인 가능 string은 x/s로 확인
