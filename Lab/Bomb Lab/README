@@ -1,0 +1,19 @@
+핵심 아이디어!
+
+1. 실행파일 bomb을 gdb로 디버깅
+
+2. gdb 유용한 명령어 모음
+   1) disas (함수명) => 해당 함수의 어셈블리어 전부 나열
+   2) b (함수명) => breakpoint 설정
+      b *0x804900 => disas로 나온 주소 값으로 함수 내에 breakpoint 설정 가능
+      b +10 => 현재 행에서 10번째 뒤에 break 걸기 가능 (걸고 바로 r)
+      Tip) b phase_defused로 틀려도 bomb이 안터지도록 설정
+           b phase_1 등으로 각각 문제마다 break 걸어 문제 해결
+   3) i r => 각 레지스터에 저장된 값 확인가능
+   4) ni => next 명령어
+   5) x/100x => 스택 정보 확인 100은 보여주는 개수, 그 뒤의 x는 16진수를 뜻함, s = string, d = decimal
+   6) r => gdb 실행
+
+3. 비교문 확인을 잘하자
+   ex) if(a == b) pass else bomb! 인 경우가 많으니 a의 값을 확인
+   x/d &rbx 이런 식으로 값 확인 가능 string은 x/s로 확인
