@@ -8,9 +8,9 @@ int main(int argc, char *argv[], char *envp[])
 {
 	int status;
 	pid_t pid;
-	char *a[] = {argv[1],argv[2],NULL};
+	argv = argv+1;
 	if ((pid = fork()) == 0){
-		execve(a[0],a,NULL);
+		execve(argv[0],argv,NULL);
 		exit(1);
 	}
 	else {
@@ -19,6 +19,5 @@ int main(int argc, char *argv[], char *envp[])
 			printf("child %d terminated by parent %d normally with exit status=%d\n", 
 				pid, getpid(), WEXITSTATUS(status)); 
 		}
-	}
-
+	}	
 }
